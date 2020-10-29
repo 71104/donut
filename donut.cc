@@ -126,7 +126,7 @@ int main() {
           };
           const Point n = (q - c.Rotate(ax, ay)).Normalize();
           const double brightness = std::acos(n.Dot(normalized_light)) / PI;
-          screen[i][j] = ".,-~:;=!*#$@"[(int)std::floor(brightness * 12)];
+          screen[i][j] = ".,-~:;=!*#$@@"[(int)std::floor(brightness * 12)];
           z_buffer[i][j] = z;
         }
       }
