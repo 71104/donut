@@ -124,8 +124,8 @@ int main() {
             .y = 0,
             .z = sa1 * kMainRadius,
           };
-          const Point n = (c.Rotate(ax, ay) - q).Normalize();
-          const double brightness = 1 - std::acos(n.Dot(normalized_light)) / PI;
+          const Point n = (q - c.Rotate(ax, ay)).Normalize();
+          const double brightness = std::acos(n.Dot(normalized_light)) / PI;
           screen[i][j] = ".,-~:;=!*#$@"[(int)std::floor(brightness * 12)];
           z_buffer[i][j] = z;
         }
