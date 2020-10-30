@@ -16,6 +16,10 @@ constexpr double kThicknessRadius = 1;
 // Z coordinate of the center
 constexpr double kDistance = 6;
 
+// Rotation speeds in radians per second
+constexpr double kXSpeed = 0.3;
+constexpr double kYSpeed = -0.2;
+
 // Screen size
 constexpr uint8_t kWidth = 80;
 constexpr uint8_t kHeight = 22;
@@ -81,6 +85,8 @@ const Point kLight{
 };
 
 int main() {
+  constexpr double kXDelta = kXSpeed / 3;
+  constexpr double kYDelta = kYSpeed / 3;
   constexpr double kHalfWidth = kWidth / 2.0;
   constexpr double kHalfHeight = kHeight / 2.0;
   const Point normalized_light = kLight.Normalize();
@@ -136,8 +142,8 @@ int main() {
       std::cout.put('\n');
     }
     std::cout << std::flush;
-    ax += 0.15;
-    ay -= 0.1;
+    ax += kXDelta;
+    ay += kYDelta;
     std::this_thread::sleep_for(std::chrono::milliseconds(33));
   }
 }
